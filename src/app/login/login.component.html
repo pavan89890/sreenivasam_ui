@@ -13,11 +13,11 @@
   <div class="col-sm-6">
   <div class="alert alert-danger" *ngIf="!isValidUser">Please Enter Correct Credentials</div>
 
-<form [formGroup]="form" (ngSubmit)="login()">
+<form [formGroup]="form" (ngSubmit)="login()" autocomplete="off">
     <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" class="form-control" id="username" formControlName="username">
-      <p *ngIf="form.controls.username.touched && form.controls.username.errors" class="text-danger">Please Enter Username</p>
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <p *ngIf="form.controls.email.touched && form.controls.email.errors" class="text-danger">Please Enter Email</p>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
@@ -25,6 +25,7 @@
       <p *ngIf="form.controls.password.touched && form.controls.password.errors" class="text-danger">Please Enter Password</p>
     </div>
     <button type="submit" class="btn btn-success" [disabled]="!form.valid">Login</button>
+    &nbsp;&nbsp;<a [routerLink]="'/register'" class="btn btn-info">Register</a>
 </form>
 
   

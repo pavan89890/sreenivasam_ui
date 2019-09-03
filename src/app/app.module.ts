@@ -22,6 +22,8 @@ import { LoginComponent } from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms'
 import { DataTablesModule } from 'angular-datatables';
 import { MytableComponent } from './mytable/mytable.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { MytableComponent } from './mytable/mytable.component';
     DashboardComponent,
     ContactsComponent,
     LoginComponent,
-    MytableComponent
+    MytableComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

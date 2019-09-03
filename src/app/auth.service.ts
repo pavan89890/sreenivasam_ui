@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from './model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,8 @@ export class AuthService {
 
   constructor(private router:Router) { }
 
-  sendToken(token: string) {
-    localStorage.setItem("currentUser", token)
+  sendToken(currentUser: User) {
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
   }
 
   getToken() {
@@ -17,7 +18,7 @@ export class AuthService {
   }
 
   isLoggednIn() {
-    return this.getToken() !== null && this.getToken()=="pavan";
+    return this.getToken() !== null;
   }
 
   logout() {

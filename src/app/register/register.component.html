@@ -1,0 +1,50 @@
+<div class="loginDiv">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Register
+        <small>register here to continue</small>
+      </h1>
+    </section>
+    
+      <!-- Main content -->
+    <section class="content container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+      
+    <form [formGroup]="form" (ngSubmit)="register()" autocomplete="off">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter Name">
+          <p *ngIf="form.controls.name.touched && form.controls.name.errors" class="text-danger">Please Enter Name</p>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email">
+            <p *ngIf="form.controls.email.touched && form.controls.email.errors" class="text-danger">Please Enter Valid Email</p>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Enter password" class="form-control" id="password" formControlName="password">
+            <p *ngIf="form.controls.password.touched && form.controls.password.errors" class="text-danger">Please Enter Password</p>
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="number" class="form-control" placeholder="Enter 10 Digit mobile" id="mobile" formControlName="mobile" maxlength="10">
+            <p *ngIf="form.controls.mobile.touched && form.controls.mobile.errors" class="text-danger">Please Enter Valid Mobile Number</p>
+        </div>
+
+        <div class="form-group">
+            <label for="flatNo">Flat No:</label>
+            <input type="number" class="form-control" id="flatNo" placeholder="Enter 3 Digit Flat No" formControlName="flatNo" maxlength="3">
+            <p *ngIf="form.controls.flatNo.touched && form.controls.flatNo.errors" class="text-danger">Please Enter Flat No</p>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!form.valid">Register</button>
+        &nbsp;&nbsp;<a [routerLink]="'/login'" class="btn btn-info">Login</a>
+    </form>
+    
+      
+    </div>
+    </div>
+    </section>
+    </div>

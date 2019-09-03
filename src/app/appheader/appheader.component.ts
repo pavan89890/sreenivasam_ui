@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../model/user';
 declare var $:any;
 
 @Component({
@@ -11,9 +12,12 @@ export class AppheaderComponent implements OnInit {
 
   constructor(private router:Router) { }
 
+  currentUser:User=null;
+
   ngOnInit() {
-    $("body").addClass('skin-purple sidebar-mini');
+    $("body").addClass('skin-green sidebar-mini');
     $("body").css("background-color","black");
+    this.currentUser=JSON.parse(localStorage.getItem("currentUser"));
   }
 
   signOut(){

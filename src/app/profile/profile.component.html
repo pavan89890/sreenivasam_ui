@@ -1,0 +1,56 @@
+<section class="content-header">
+    <h1>
+        Profile
+        <small>select,update</small>
+    </h1>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Update Profile</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form autocomplete="off" #form="ngForm" novalidate>
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
+                        [(ngModel)]="currentUser.name" required #nameVal="ngModel">
+                        <p class="text-danger" *ngIf="(nameVal.touched || nameVal.dirty) &&  nameVal.invalid">Please enter name</p>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email"
+                        [(ngModel)]="currentUser.email" required #emailVal="ngModel">
+                        <p class="text-danger" *ngIf="(emailVal.touched || emailVal.dirty) &&  emailVal.invalid">Please enter email</p>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Enter Password" [(ngModel)]="currentUser.password" required #passwordVal="ngModel">
+                        <p class="text-danger" *ngIf="(passwordVal.touched || passwordVal.dirty) &&  passwordVal.invalid">Please enter password</p>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile"
+                        [(ngModel)]="currentUser.mobile" required #mobileVal="ngModel">
+                        <p class="text-danger" *ngIf="(mobileVal.touched || mobileVal.dirty) &&  mobileVal.invalid">Please enter mobile</p>
+                </div>
+                <div class="form-group">
+                    <label for="flatNo">Flat No</label>
+                    <input type="number" class="form-control" id="flatNo" name="flatNo" placeholder="Enter Flat No"
+                        [(ngModel)]="currentUser.flatNo" required #flatNoVal="ngModel">
+                        <p class="text-danger" *ngIf="(flatNoVal.touched || flatNoVal.dirty) &&  flatNoVal.invalid">Please enter flat no</p>
+                </div>
+            </div>
+            <!-- /.box-body -->
+
+            <div class="box-footer">
+                <button type="button" [disabled]="form.invalid" class="btn btn-primary" (click)="updateProfile(currentUser)">Update</button>
+            </div>
+        </form>
+    </div>
+</section>

@@ -37,7 +37,6 @@ export class ApiService {
         resolve(snapshots)
       })
     })
-
   }
 
   getOrderedObjects(url:string,orderBy:string , direction:any):any{
@@ -49,6 +48,10 @@ export class ApiService {
       })
     })
 
+  }
+
+  getObject(url:string,id:string):any{
+    return this.firestore.doc(url+"/"+id).snapshotChanges();
   }
 
   addObject(obj:any,url:string){
